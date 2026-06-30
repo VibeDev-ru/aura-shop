@@ -1,0 +1,330 @@
+/* ========================================
+   Catalog Page Styles - AURA
+   ======================================== */
+
+.catalog {
+  padding: 40px 0 60px;
+}
+
+/* ---------- Заголовок ---------- */
+.catalog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.catalog-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--color-text-primary);
+}
+
+.catalog-subtitle {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+/* ---------- Управление ---------- */
+.catalog-controls {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.search-wrapper {
+  flex: 1;
+  position: relative;
+  min-width: 200px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 44px 12px 44px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-border);
+  background: var(--color-bg-card);
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+  outline: none;
+  font-family: var(--font-body);
+}
+
+.search-input:focus {
+  border-color: var(--color-accent-end);
+  box-shadow: 0 0 0 4px rgba(192, 132, 252, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  opacity: 0.5;
+}
+
+.search-clear {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  padding: 4px;
+  border-radius: 50%;
+  transition: all var(--transition-fast);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-clear:hover {
+  background: var(--color-border);
+}
+
+.sort-wrapper {
+  min-width: 180px;
+}
+
+.sort-select {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-border);
+  background: var(--color-bg-card);
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+}
+
+.sort-select:focus {
+  border-color: var(--color-accent-end);
+  box-shadow: 0 0 0 4px rgba(192, 132, 252, 0.1);
+}
+
+/* ---------- Чипсы категорий ---------- */
+.categories-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.chip {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 2px solid var(--color-border);
+  background: var(--color-bg-card);
+  color: var(--color-text-secondary);
+  font-family: var(--font-accent);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.chip:hover {
+  border-color: var(--color-accent-end);
+  color: var(--color-text-primary);
+}
+
+.chip.active {
+  background: var(--gradient-primary);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 16px rgba(255, 107, 107, 0.3);
+}
+
+/* ---------- Сетка товаров ---------- */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* ---------- Загрузка ---------- */
+.catalog-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.loading-spinner {
+  display: flex;
+  gap: 12px;
+}
+
+.spinner-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  animation: pulse-dot 1.4s ease-in-out infinite;
+}
+
+.spinner-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.spinner-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse-dot {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.2;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ---------- Пустое состояние ---------- */
+.catalog-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  text-align: center;
+  gap: 12px;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  opacity: 0.5;
+}
+
+.catalog-empty h3 {
+  font-size: 1.5rem;
+  color: var(--color-text-primary);
+}
+
+.catalog-empty p {
+  color: var(--color-text-secondary);
+}
+
+/* ---------- Анимация добавления в корзину ---------- */
+.add-to-cart.added {
+  animation: cartAdd 0.6s ease;
+}
+
+@keyframes cartAdd {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.1); }
+  50% { transform: scale(0.95); }
+  70% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* ---------- Адаптивность ---------- */
+@media (max-width: 1024px) {
+  .catalog-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .catalog {
+    padding: 24px 0 40px;
+  }
+
+  .catalog-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .catalog-controls {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .search-wrapper {
+    min-width: 100%;
+  }
+
+  .sort-wrapper {
+    min-width: 100%;
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .categories-chips {
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .chip {
+    font-size: 0.8rem;
+    padding: 6px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .catalog {
+    padding: 16px 0 30px;
+  }
+
+  .catalog-title {
+    font-size: 1.5rem;
+  }
+
+  .catalog-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .catalog-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .search-input {
+    padding: 10px 38px 10px 38px;
+    font-size: 0.9rem;
+  }
+
+  .sort-select {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+
+  .chip {
+    font-size: 0.75rem;
+    padding: 4px 12px;
+  }
+
+  .catalog-empty h3 {
+    font-size: 1.2rem;
+  }
+
+  .catalog-empty p {
+    font-size: 0.9rem;
+  }
+}

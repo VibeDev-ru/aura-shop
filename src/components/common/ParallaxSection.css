@@ -1,0 +1,63 @@
+/* src/components/common/ParallaxSection.css */
+.parallax-section {
+  position: relative;
+  will-change: transform;
+}
+
+.parallax-tilt {
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- Параллакс для категорий ---------- */
+.parallax-category {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.parallax-category-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.parallax-category:hover .parallax-category-image {
+  transform: scale(1.1);
+}
+
+.parallax-category-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 20px;
+}
+
+.parallax-category-title {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  margin-bottom: 8px;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.3);
+}
+
+.parallax-category-count {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* ---------- Адаптивность ---------- */
+@media (max-width: 768px) {
+  .parallax-category-image {
+    height: 200px;
+  }
+
+  .parallax-category-title {
+    font-size: 1.5rem;
+  }
+}
